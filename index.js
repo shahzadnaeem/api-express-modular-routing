@@ -7,12 +7,11 @@ const morgan = require("morgan");
 
 // SETUP MIDDLEWARE
 app.use(cors());
-app.use(express.json());
 app.use(morgan("dev"));
+app.use(express.json());
 
 // REQUIRE ROUTERS
 const usersRouter = require("./src/routers/users");
-const { response } = require("express");
 
 // ADD ROUTERS TO APP
 

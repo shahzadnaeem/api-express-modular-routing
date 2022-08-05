@@ -21,7 +21,9 @@ router.get("/:id", (req, resp) => {
   if (user) {
     resp.json({ user });
   } else {
-    resp.sendStatus(404);
+    resp.status(404).json({
+      error: `User id=${id} NOT FOUND`,
+    });
   }
 });
 
