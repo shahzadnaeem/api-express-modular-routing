@@ -45,7 +45,9 @@ router.put("/:id", (req, resp) => {
     user.email = req.body.email || user.email;
     resp.json({ user });
   } else {
-    resp.sendStatus(404);
+    resp.status(404).json({
+      error: `User id=${id} NOT FOUND`,
+    });
   }
 });
 
@@ -59,7 +61,9 @@ router.delete("/:id", (req, resp) => {
     users.splice(users.indexOf(user), 1);
     resp.json({ user });
   } else {
-    resp.sendStatus(404);
+    resp.status(404).json({
+      error: `User id=${id} NOT FOUND`,
+    });
   }
 });
 
